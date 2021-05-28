@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HOME</title>
+</head>
+
+<body>
+  <header>
+    홈
+  </header>
+  <nav>
+    <% if(locals.user){ %>
+      <a href="/logout">로그아웃</a>
+      <% } else { %>
+        <a href="/login">로그인</a>
+        <a href="/join">회원가입</a>
+        <% } %>
+  </nav>
+  <main>
+
+  </main>
+  <section>
+    <form action=""></form>
+  </section>
+</body>
+
+</html>
