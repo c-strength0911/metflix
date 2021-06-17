@@ -4,6 +4,7 @@ const morgan = require("morgan");
 
 const connection = require("./config/databaseConfig.js");
 const fileRouter = require("./routers/fileRouter");
+const userRouter = require("./routers/userRouter");
 
 const app = express();
 const PORT = 8000;
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
  * Routing
  */
 app.use("/file", fileRouter);
+app.use("/user", userRouter);
 
 app.get("/", (req, res) => {
   console.log("good");

@@ -17,8 +17,8 @@ router.post("/:fileType", uploadFile, async (req, res) => {
       fileType,
       status,
     ]);
-    console.log(result);
     console.log("routing is working");
+    console.log(result);
     res.status(200).json({ result: "success", fileNo: result.insertId });
   } catch (error) {
     console.log(error);
