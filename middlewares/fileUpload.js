@@ -25,7 +25,6 @@ const fileFilter = (req, file, cb) => {
     console.log("동영상 아님!!!");
     cb(new Error("NotSupportMideaType"));
   }
-
   cb(null, true);
 };
 
