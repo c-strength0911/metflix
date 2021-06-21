@@ -3,9 +3,9 @@ module.exports = {
     INSERT: `INSERT 
                 INTO user(user_id, user_password, user_nickname, user_type) 
                 VALUE(?,?,?,?)`,
-    SELECT_BY_ID: `SELCET * 
+    SELECT_BY_ID: `SELECT * 
                       FROM user 
-                      WHERE user_id=? 
+                      WHERE user_id=?
                   AND user_password=?`,
   },
   FILE: {

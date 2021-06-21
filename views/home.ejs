@@ -21,11 +21,23 @@
         <% } %>
   </nav>
   <main>
-
+    <% if(locals.user) { %>
+      <%=user.nickname%>님 환영합니다~~ 뿌뿌🎈🎈
+        <% } %>
   </main>
   <section>
-    <form action=""></form>
+    <form id="fileForm">
+      <input type="file" name="uploadFile" id="">
+      <button id="uploadBtn">파일업로드</button>
+    </form>
   </section>
 </body>
+<script>
+  const fileForm = document.getElementById("fileForm");
+  fileForm.addEventListener("click", (e) => {
+    e.preventDefault();
+
+  })
+</script>
 
 </html>

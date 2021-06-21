@@ -2,10 +2,10 @@ const express = require("express");
 const session = require("express-session");
 const morgan = require("morgan");
 
-const connection = require("./config/databaseConfig.js");
+// const connection = require("./config/databaseConfig.js");
 const fileRouter = require("./routers/fileRouter");
 const userRouter = require("./routers/userRouter");
-
+const globalRouter = require("./routers/globalRouter");
 const app = express();
 const PORT = 8000;
 
@@ -18,18 +18,20 @@ app.use(
   })
 );
 app.use(morgan("dev"));
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 /**
  * Routing
  */
+app.use("/", globalRouter);
 app.use("/file", fileRouter);
 app.use("/user", userRouter);
-
+/*
 app.get("/", (req, res) => {
   console.log("good");
   const { nickname } = req.session;
   res.render("home", { nickname });
-});
+});*/
 
 // app.post("/file/image", uploadImage.single("imageFile"), (req, res) => {
 //   let ext = path.extname(req.file.originalname);
@@ -107,12 +109,12 @@ app.post(
 //   console.log(path.extname(req.file.originalname));
 //   res.send("success");
 // });
-// app.get("/join", (req, res) => {
-//   res.render("join");
-// });
-// app.get("/login", (req, res) => {
-//   res.render("login");
-// });
+app.get("/join", (req, res) => {
+  res.render("join");
+});
+app.get("/login", (req, res) => {
+  res.render("login");
+});
 // app.post("/user/join", (req, res) => {
 //   const signUpQuery =
 //     "INSERT INTO user(user_id, user_password, user_nickname, user_type) VALUE(?,?,?,?)";
@@ -127,22 +129,22 @@ app.post(
 //   });
 // });
 
-app.post("/user/login", (req, res) => {
-  const signInQuery = "select * from user where user_id=? and user_password=?";
-  const { id, password } = req.body;
+// app.post("/user/login", (req, res) => {
+//   const signInQuery = "select * from user where user_id=? and user_password=?";
+//   const { id, password } = req.body;
 
-  connection.query(signInQuery, [id, password], (err, rows, fields) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).json({ result: "fail" }).render("login");
-    } else {
-      req.session.nickname = rows[0].user_nickname;
-      return res
-        .status(200)
-        .json({ result: "success", nickname: req.session.nickname });
-    }
-  });
-});
+//   connection.query(signInQuery, [id, password], (err, rows, fields) => {
+//     if (err) {
+//       console.log(err);
+//       return res.status(500).json({ result: "fail" }).render("login");
+//     } else {
+//       req.session.nickname = rows[0].user_nickname;
+//       return res
+//         .status(200)
+//         .json({ result: "success", nickname: req.session.nickname });
+//     }
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`OPENED PORT : ${PORT}`);
