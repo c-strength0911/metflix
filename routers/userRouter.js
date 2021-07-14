@@ -42,7 +42,10 @@ router.post("/login", validator.body(loginSchema), async (req, res) => {
 
 
 
-    // ✔✔✔✔✔
+    // ✔✔✔✔✔ 이부분이 잘 안되는 것 같습니다. 
+    // 로그인을 한 후에 리다이렉트 후 home 화면에서 user의 nickname을 표시하지 않습니다
+    // 클라이언트 쪽에서 session 정보가 없는 것을 보아 제대로 session이 저장되지 않은 것 같은데
+    // 어디가 문제인지 모르겠어요ㅠㅠ 
     req.session.user = user;
     // ✔✔✔✔✔
     
