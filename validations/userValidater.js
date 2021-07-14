@@ -9,7 +9,11 @@ const joinSchema = loginSchema.keys({
   nickname: Joi.string().required().trim(),
 });
 
+const profileSchema = Joi.object({
+  userNo: Joi.number(),
+});
 module.exports = {
   loginSchema,
   joinSchema,
+  profileSchema
 };

@@ -14,12 +14,12 @@ app.use(
   session({
     secret: "sdfg56456dfsgasfgd",
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 /**
  * Routing
  */

@@ -4,7 +4,7 @@ const express = require("express");
 
 const router = express.Router();
 
-router.get("/", (_, res) => {
+router.get("/", (req, res) => {
   console.log("good");
   const { nickname } = req.session;
   res.render("home", { nickname });

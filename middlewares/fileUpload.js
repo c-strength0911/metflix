@@ -52,7 +52,7 @@ const uploadFile = (req, res, next) => {
      * 파일 업로드 에러 처리
      */
     if (err) {
-      console.lpg(err);
+      console.log(err);
       /* 예상치 못한 파일이 들어온 경우 */
       if (err.code === "LIMIT_UNEXPECTED_FILE") {
         return res

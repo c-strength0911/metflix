@@ -1,6 +1,6 @@
 const express = require("express");
 const uploadFile = require("../middlewares/fileUpload");
-
+const QUERY = require("../query/query.js");
 const pool = require("../config/poolConfig.js");
 const router = express.Router();
 

@@ -22,7 +22,7 @@
   </nav>
   <main>
     <% if(locals.user) { %>
-      <%=user.nickname%>님 환영합니다~~ 뿌뿌🎈🎈
+      <%= user.user_nickname %>님 환영합니다~~ 뿌뿌🎈🎈
         <% } %>
   </main>
   <section>
@@ -33,11 +33,20 @@
   </section>
 </body>
 <script>
-  const fileForm = document.getElementById("fileForm");
-  fileForm.addEventListener("click", (e) => {
-    e.preventDefault();
 
-  })
+  // const fileForm = document.getElementById("fileForm");
+  // fileForm.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   const file = document.querySelector("input[name='uploadFile']");
+  //   formData.append("uploadFile", file.files[0]);
+  //   var request = new XMLHttpRequest();
+  //   request.open('POST', './file/image');
+  //   request.onreadystatechange = function () {
+  //     console.log(request.responseText);
+  //   }
+  //   request.send(formData);
+  // });
 </script>
 
 </html>
