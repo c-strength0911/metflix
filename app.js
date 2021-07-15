@@ -117,12 +117,12 @@ app.post(
 //   console.log(path.extname(req.file.originalname));
 //   res.send("success");
 // });
-app.get("/join", (req, res) => {
-  res.render("join");
-});
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+// app.get("/join", (req, res) => {
+//   res.render("join");
+// });
+// app.get("/login", (req, res) => {
+//   res.render("home");
+// });
 // app.post("/user/join", (req, res) => {
 //   const signUpQuery =
 //     "INSERT INTO user(user_id, user_password, user_nickname, user_type) VALUE(?,?,?,?)";

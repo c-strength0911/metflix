@@ -14,7 +14,7 @@
   </header>
   <nav>
     <% if(locals.user){ %>
-      <a href="/logout">로그아웃</a>
+      <a href="/user/logout">로그아웃</a>
       <% } else { %>
         <a href="/login">로그인</a>
         <a href="/join">회원가입</a>
@@ -34,19 +34,19 @@
 </body>
 <script>
 
-  // const fileForm = document.getElementById("fileForm");
-  // fileForm.addEventListener("click", (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   const file = document.querySelector("input[name='uploadFile']");
-  //   formData.append("uploadFile", file.files[0]);
-  //   var request = new XMLHttpRequest();
-  //   request.open('POST', './file/image');
-  //   request.onreadystatechange = function () {
-  //     console.log(request.responseText);
-  //   }
-  //   request.send(formData);
-  // });
+  const fileForm = document.getElementById("fileForm");
+  fileForm.addEventListener("click", (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    const file = document.querySelector("input[name='uploadFile']");
+    formData.append("uploadFile", file.files[0]);
+    var request = new XMLHttpRequest();
+    request.open('POST', './file/image');
+    request.onreadystatechange = function () {
+      console.log(request.responseText);
+    }
+    request.send(formData);
+  });
 </script>
 
 </html>
