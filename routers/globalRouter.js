@@ -6,8 +6,13 @@ const router = express.Router();
 
 router.get("/", (req, res) => {
   console.log("good");
-  const { nickname } = req.session;
-  res.render("home", { nickname });
+
+  // 세션 로깅
+  console.log(req.session.user);
+  
+  const { user } = req.session;
+  res.render("home", { user });
+
 });
 
 router.get("/join", (_, res) => {

@@ -26,6 +26,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", globalRouter);
 app.use("/file", fileRouter);
 app.use("/user", userRouter);
+
+/**
+ * 세션 테스트용 컨트롤러
+ */
+ app.get("/session-test", (req, res) => {
+  return res.send(req.session);
+});
+
 /*
 app.get("/", (req, res) => {
   console.log("good");
