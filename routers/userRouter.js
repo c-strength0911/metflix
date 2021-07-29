@@ -1,12 +1,12 @@
 const express = require("express");
 const pool = require("../config/poolConfig");
 const validator = require("express-joi-validation").createValidator({});
-const { loginSchema, userSchema } = require("../validations/userValidater");
+const { loginSchema, joinSchema } = require("../validations/userValidater");
 
 const router = express.Router();
 const query = require("../query/query");
 
-router.post("/join", validator.body(userSchema), async (req, res) => {
+router.post("/join", validator.body(joinSchema), async (req, res) => {
   const { userId, userPassword, userNickname } = req.body;
 
   try {

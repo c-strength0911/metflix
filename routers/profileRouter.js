@@ -4,13 +4,14 @@ const QUERY = require("../query/query.js");
 const router = express.Router();
 const validator = require("express-joi-validation").createValidator({});
 const { profileSchema } = require("../validations/userValidater");
-router.get("/profile", validator.body(profileSchema), (req, res) => {
+router.get("/profile", validator.body(profileSchema), async (req, res) => {
   try {
     if (!req.session.userNo) {
       res.render("/login");
     }
-    
-  } catch {
-
+	  await 
+  } catch (error){
+	console.error(error);
   }
+	
 });
